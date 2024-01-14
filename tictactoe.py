@@ -130,14 +130,16 @@ class TicTacToe:
         while True:
             system("cls")
             print(figlet_format("       < TIC TAC TOE >",font = "standard"))
-            mmenu=input("\n1. Start The Game\n\n2. Stats\n\n3. Credits\n\n0. Exit\n\n")
+            rprint("[bold]\n1. Start The Game\n\n2. Stats\n\n3. Credits\n\n0. Exit\n\n")
+            mmenu=input()
             if mmenu=="1":
                 t1 = threading.Thread(target=sounds, args=(1,))
                 t1.start()
                 while True:
                     system("cls")
                     print(figlet_format("       < TIC TAC TOE >",font = "standard"))
-                    mmenu2=input("\n1. Player VS AI\n\n2. Player VS Player \n\n\n0. Back\n\n")
+                    rprint("[bold]\n1. Player VS AI\n\n2. Player VS Player \n\n\n0. Back\n\n")
+                    mmenu2=input()
                     if mmenu2 == "1":
                         t1 = threading.Thread(target=sounds, args=(1,1))
                         t1.start()
@@ -169,7 +171,8 @@ class TicTacToe:
                 t1.start()
                 system("cls")
                 print("Quitting!")
-                time.sleep(2)
+                bg_music.fadeout(1000)
+                time.sleep(1)
                 exit()
             else:
                 t1 = threading.Thread(target=sounds, args=(3,))
@@ -209,7 +212,8 @@ class TicTacToe:
             rprint("[green]Wins:",win,"\n[red]Loss:",loss,"\n[yellow]Draw:",draws)
             rprint("\n[bold black on white][big]Player VS Player Mode:-")
             rprint("[green]Player[/green] [yellow]X[/yellow] [green]Wins:[/green]",X_win,"\n[green]Player[/green] [yellow]O[/yellow] [green]Wins:[/green]",O_win,"\n[yellow]Draw:",multi_draws)
-            mmenu=input("\n0. Go Back\n\n")
+            rprint("[bold]\n0. Go Back\n\n")
+            mmenu=input()
             if mmenu=="0":
                 t1 = threading.Thread(target=sounds, args=(1,))
                 t1.start()
@@ -224,8 +228,9 @@ class TicTacToe:
         while True:
             system("cls")
             print(figlet_format("       < CREDITS >",font = "standard"))
-            print(figlet_format("Made by: Shaheer Kashif", font = "sub-zero"))
-            mmenu=input("0. Go Back\n\n")
+            rprint("[bold]Made by:[/bold] [green]Shaheer Kashif")
+            rprint("[bold]\n0. Go Back\n\n")
+            mmenu=input()
             if mmenu=="0":
                 t1 = threading.Thread(target=sounds, args=(1,))
                 t1.start()
@@ -261,7 +266,8 @@ class TicTacToe:
                     multi_draws += 1
                     rprint("\n[yellow]It's a draw!")
                 self.game_reset_and_file_update_mp()
-                count=input("\nWould you like to continue? (Y/N): ")
+                rprint("\nWould you like to continue? [yellow](Y/N): ")
+                count=input()
                 if count.upper()=="Y":
                     t1 = threading.Thread(target=sounds, args=(1,))
                     t1.start()
@@ -287,7 +293,8 @@ class TicTacToe:
                     system("cls")
                     print("",self.row1,"\n",self.row2,"\n",self.row3)
                     try:
-                        self.num=input("\nPlayer "+sign+", Enter the input here: ")
+                        rprint("\nPlayer [yellow]"+sign+"[/yellow], Enter the input here: ")
+                        self.num=input()
                         temp = self.num
                         self.num = int(self.num)
                         if self.num in val_lis:
@@ -314,7 +321,8 @@ class TicTacToe:
                         if temp.upper() == "Q" or "QU" or "QUI" or "QUIT":
                             t1 = threading.Thread(target=sounds, args=(1,))
                             t1.start()
-                            quit_input = input("\nAre you sure you want to quit?\n(Y/N): ")
+                            rprint("\nAre you sure you want to quit? [yellow](Y/N): ")
+                            quit_input = input()
                             if quit_input.upper() == "Y":
                                 t1 = threading.Thread(target=sounds, args=(1,))
                                 t1.start()
@@ -371,7 +379,8 @@ class TicTacToe:
                     draws += 1
                     rprint("\n[yellow]It's a Draw! No one won...")
                 self.game_reset_and_file_update_sp()
-                count=input("Would you like to continue? (Y/N): ")
+                rprint("Would you like to continue? [yellow](Y/N):")
+                count=input()
                 if count.upper()=="Y":
                     t1 = threading.Thread(target=sounds, args=(1,))
                     t1.start()
@@ -423,7 +432,8 @@ class TicTacToe:
                         continue
                 except ValueError:
                     if temp.upper() == "Q" or temp.upper() == "QU" or temp.upper() == "QUI" or temp.upper() == "QUIT":
-                        quit_input = input("\nAre you sure you want to quit? This will result in a loss.\n(Y/N): ")
+                        rprint("\nAre you sure you want to quit? This will result in a loss.\n[yellow](Y/N): ")
+                        quit_input = input()
                         if quit_input.upper() == "Y":
                             t1 = threading.Thread(target=sounds, args=(1,))
                             t1.start()
@@ -450,7 +460,7 @@ class TicTacToe:
                         continue
     def AIBot(self):
         global AItry , tries , firsttry , label , AI_pos , ch1 , ch2 , ch3 , ch4 , ch5 , ch6 , ch7 , ch8 , slb , ulb , ch9 , ch10
-        print("AI is thinking.\r")
+        rprint("[yellow]AI[/yellow] is thinking.\r")
         time.sleep(1)
         if AItry == 1:
             if self.row2[4]!="X":
