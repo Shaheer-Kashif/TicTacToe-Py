@@ -266,7 +266,7 @@ class TicTacToe:
                     multi_draws += 1
                     rprint("\n[yellow]It's a draw!")
                 self.game_reset_and_file_update_mp()
-                rprint("\nWould you like to continue? [yellow](Y/N): ")
+                rprint("\nWould you like to continue? [yellow](Y/N): ",end = "")
                 count=input()
                 if count.upper()=="Y":
                     t1 = threading.Thread(target=sounds, args=(1,))
@@ -291,9 +291,9 @@ class TicTacToe:
                     switch = 0
                 while True:
                     system("cls")
-                    print("",self.row1,"\n",self.row2,"\n",self.row3)
+                    print(figlet_format(""+self.row1+"\n"+self.row2+"\n"+self.row3,font = "standard"))
                     try:
-                        rprint("\nPlayer [yellow]"+sign+"[/yellow], Enter the input here: ")
+                        rprint("\nPlayer [yellow]"+sign+"[/yellow], Enter the input here: ",end = "")
                         self.num=input()
                         temp = self.num
                         self.num = int(self.num)
@@ -321,7 +321,7 @@ class TicTacToe:
                         if temp.upper() == "Q" or "QU" or "QUI" or "QUIT":
                             t1 = threading.Thread(target=sounds, args=(1,))
                             t1.start()
-                            rprint("\nAre you sure you want to quit? [yellow](Y/N): ")
+                            rprint("\nAre you sure you want to quit? [yellow](Y/N): ",end = "")
                             quit_input = input()
                             if quit_input.upper() == "Y":
                                 t1 = threading.Thread(target=sounds, args=(1,))
@@ -379,7 +379,7 @@ class TicTacToe:
                     draws += 1
                     rprint("\n[yellow]It's a Draw! No one won...")
                 self.game_reset_and_file_update_sp()
-                rprint("Would you like to continue? [yellow](Y/N):")
+                rprint("Would you like to continue? [yellow](Y/N):",end = "")
                 count=input()
                 if count.upper()=="Y":
                     t1 = threading.Thread(target=sounds, args=(1,))
@@ -432,7 +432,7 @@ class TicTacToe:
                         continue
                 except ValueError:
                     if temp.upper() == "Q" or temp.upper() == "QU" or temp.upper() == "QUI" or temp.upper() == "QUIT":
-                        rprint("\nAre you sure you want to quit? This will result in a loss.\n[yellow](Y/N): ")
+                        rprint("\nAre you sure you want to quit? This will result in a loss.\n[yellow](Y/N): ",end = "")
                         quit_input = input()
                         if quit_input.upper() == "Y":
                             t1 = threading.Thread(target=sounds, args=(1,))
