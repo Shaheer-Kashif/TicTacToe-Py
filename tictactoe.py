@@ -121,7 +121,7 @@ def sounds(num,count = 0):
     if count == 1:
         bg_music.fadeout(500)
         game_play.set_volume(0.05)
-        game_play.play()
+        game_play.play(loops = -1,fade_ms = 2000)
         firstmus = 1
 class TicTacToe: 
     def __init__(self):
@@ -251,7 +251,7 @@ class TicTacToe:
         while True:
             if ((self.row1 == "X | X | X" or self.row2 == "X | X | X" or self.row3 == "X | X | X") or (self.row1[0:3] == "X |" and self.row2[0:3]=="X |" and self.row3[0:3]=="X |") or (self.row1[4:7] == "X |" and self.row2[4:7]=="X |" and self.row3[4:7]=="X |") or (self.row1[8] == "X" and self.row2[8]=="X" and self.row3[8]=="X") or (self.row1[0:3] == "X |" and self.row2[4:7]=="X |" and self.row3[8]=="X") or (self.row1[8]=="X" and self.row2[4:7]=="X |" and self.row3[0:3] == "X |")) or ((self.row1 == "O | O | O" or self.row2 == "O | O | O" or self.row3 == "O | O | O") or (self.row1[0:3] == "O |" and self.row2[0:3]=="O |" and self.row3[0:3]=="O |") or (self.row1[4:7] == "O |" and self.row2[4:7]=="O |" and self.row3[4:7]=="O |") or (self.row1[8] == "O" and self.row2[8]=="O" and self.row3[8]=="O") or (self.row1[0:3] == "O |" and self.row2[4:7]=="O |" and self.row3[8]=="O") or (self.row1[8]=="O" and self.row2[4:7]=="O |" and self.row3[0:3] == "O |")) or multi_tries >= 10:
                 system("cls")
-                print(figlet_format(""+self.row1+"\n"+self.row2+"\n"+self.row3,font = "standard"))
+                rprint("[bold]"+self.row1+"\n"+self.row2+"\n"+self.row3)
                 if (self.row1 == "X | X | X" or self.row2 == "X | X | X" or self.row3 == "X | X | X") or (self.row1[0:3] == "X |" and self.row2[0:3]=="X |" and self.row3[0:3]=="X |") or (self.row1[4:7] == "X |" and self.row2[4:7]=="X |" and self.row3[4:7]=="X |") or (self.row1[8] == "X" and self.row2[8]=="X" and self.row3[8]=="X") or (self.row1[0:3] == "X |" and self.row2[4:7]=="X |" and self.row3[8]=="X") or (self.row1[8]=="X" and self.row2[4:7]=="X |" and self.row3[0:3] == "X |"):
                     X_win += 1
                     rprint("\n[green]Player [/green][yellow]X[/yellow][green] Wins!")
@@ -291,7 +291,7 @@ class TicTacToe:
                     switch = 0
                 while True:
                     system("cls")
-                    print(figlet_format(""+self.row1+"\n"+self.row2+"\n"+self.row3,font = "standard"))
+                    rprint("[bold]"+self.row1+"\n"+self.row2+"\n"+self.row3)
                     try:
                         rprint("\nPlayer [yellow]"+sign+"[/yellow], Enter the input here: ",end = "")
                         self.num=input()
@@ -361,7 +361,7 @@ class TicTacToe:
         self.row3="7 | 8 | 9"
         while True:
             system("cls")
-            print(figlet_format(""+self.row1+"\n"+self.row2+"\n"+self.row3,font = "standard"))
+            rprint("[bold]"+self.row1+"\n"+self.row2+"\n"+self.row3) 
             if ((self.row1 == "O | O | O" or self.row2 == "O | O | O" or self.row3 == "O | O | O") or (self.row1[0:3] == "O |" and self.row2[0:3]=="O |" and self.row3[0:3]=="O |") or (self.row1[4:7] == "O |" and self.row2[4:7]=="O |" and self.row3[4:7]=="O |") or (self.row1[8] == "O" and self.row2[8]=="O" and self.row3[8]=="O") or (self.row1[0:3] == "O |" and self.row2[4:7]=="O |" and self.row3[8]=="O") or (self.row1[8]=="O" and self.row2[4:7]=="O |" and self.row3[0:3] == "O |")) or cond == 1 or cond == 2:
                 if (self.row1 == "O | O | O" or self.row2 == "O | O | O" or self.row3 == "O | O | O") or (self.row1[0:3] == "O |" and self.row2[0:3]=="O |" and self.row3[0:3]=="O |") or (self.row1[4:7] == "O |" and self.row2[4:7]=="O |" and self.row3[4:7]=="O |") or (self.row1[8] == "O" and self.row2[8]=="O" and self.row3[8]=="O") or (self.row1[0:3] == "O |" and self.row2[4:7]=="O |" and self.row3[8]=="O") or (self.row1[8]=="O" and self.row2[4:7]=="O |" and self.row3[0:3] == "O |"):
                     t1 = threading.Thread(target=sounds, args=(6,))
