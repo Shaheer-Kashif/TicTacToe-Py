@@ -211,7 +211,7 @@ class TicTacToe:
             rprint("\n[bold black on white][big]Player VS AI Mode:-")
             rprint("[green]Wins:",win,"\n[red]Loss:",loss,"\n[yellow]Draw:",draws)
             rprint("\n[bold black on white][big]Player VS Player Mode:-")
-            rprint("[green]Player[/green] [yellow]X[/yellow] [green]Wins:[/green]",X_win,"\n[green]Player[/green] [yellow]O[/yellow] [green]Wins:[/green]",O_win,"\n[yellow]Draw:",multi_draws)
+            rprint("[green]Player[/green] [bright_blue]X[/bright_blue] [green]Wins:[/green]",X_win,"\n[green]Player[/green] [dark_orange]O[/dark_orange] [green]Wins:[/green]",O_win,"\n[yellow]Draw:",multi_draws)
             rprint("[bold]\n0. Go Back\n\n")
             mmenu=input()
             if mmenu=="0":
@@ -241,6 +241,35 @@ class TicTacToe:
                 rprint("[red]You have entered the wrong output!")
                 time.sleep(2)
                 continue
+    def print_format(self,mode):
+        global multi_tries,tries
+        system("cls")
+        if mode == 1:
+            if tries > 1:
+                if "X" in self.row1 or "X" in self.row2 or "X" in self.row3:
+                    self.row1_temp = self.row1_temp.replace("X","[bright_blue]X[/bright_blue]")
+                    self.row2_temp = self.row2_temp.replace("X","[bright_blue]X[/bright_blue]")
+                    self.row3_temp = self.row3_temp.replace("X","[bright_blue]X[/bright_blue]")
+                if "O" in self.row1 or "O" in self.row2 or "O" in self.row3:
+                    self.row1_temp = self.row1_temp.replace("O","[dark_orange]O[/dark_orange]")
+                    self.row2_temp = self.row2_temp.replace("O","[dark_orange]O[/dark_orange]")
+                    self.row3_temp = self.row3_temp.replace("O","[dark_orange]O[/dark_orange]")
+                rprint("[bold]"+self.row1_temp+"\n"+self.row2_temp+"\n"+self.row3_temp)
+            else:
+                rprint("[bold]"+self.row1+"\n"+self.row2+"\n"+self.row3)
+        elif mode == 2:
+            if multi_tries > 1:
+                if "X" in self.row1 or "X" in self.row2 or "X" in self.row3:
+                    self.row1_temp = self.row1_temp.replace("X","[bright_blue]X[/bright_blue]")
+                    self.row2_temp = self.row2_temp.replace("X","[bright_blue]X[/bright_blue]")
+                    self.row3_temp = self.row3_temp.replace("X","[bright_blue]X[/bright_blue]")
+                if "O" in self.row1 or "O" in self.row2 or "O" in self.row3:
+                    self.row1_temp = self.row1_temp.replace("O","[dark_orange]O[/dark_orange]")
+                    self.row2_temp = self.row2_temp.replace("O","[dark_orange]O[/dark_orange]")
+                    self.row3_temp = self.row3_temp.replace("O","[dark_orange]O[/dark_orange]")
+                rprint("[bold]"+self.row1_temp+"\n"+self.row2_temp+"\n"+self.row3_temp)
+            else:
+                rprint("[bold]"+self.row1+"\n"+self.row2+"\n"+self.row3)
     def TicTacToePvP(self):
         switch = 0
         val_lis = [1,2,3,4,5,6,7,8,9]
@@ -248,25 +277,27 @@ class TicTacToe:
         self.row1="1 | 2 | 3"
         self.row2="4 | 5 | 6"
         self.row3="7 | 8 | 9"
+        self.row1_temp = self.row1
+        self.row2_temp = self.row2
+        self.row3_temp = self.row3
         while True:
             if ((self.row1 == "X | X | X" or self.row2 == "X | X | X" or self.row3 == "X | X | X") or (self.row1[0:3] == "X |" and self.row2[0:3]=="X |" and self.row3[0:3]=="X |") or (self.row1[4:7] == "X |" and self.row2[4:7]=="X |" and self.row3[4:7]=="X |") or (self.row1[8] == "X" and self.row2[8]=="X" and self.row3[8]=="X") or (self.row1[0:3] == "X |" and self.row2[4:7]=="X |" and self.row3[8]=="X") or (self.row1[8]=="X" and self.row2[4:7]=="X |" and self.row3[0:3] == "X |")) or ((self.row1 == "O | O | O" or self.row2 == "O | O | O" or self.row3 == "O | O | O") or (self.row1[0:3] == "O |" and self.row2[0:3]=="O |" and self.row3[0:3]=="O |") or (self.row1[4:7] == "O |" and self.row2[4:7]=="O |" and self.row3[4:7]=="O |") or (self.row1[8] == "O" and self.row2[8]=="O" and self.row3[8]=="O") or (self.row1[0:3] == "O |" and self.row2[4:7]=="O |" and self.row3[8]=="O") or (self.row1[8]=="O" and self.row2[4:7]=="O |" and self.row3[0:3] == "O |")) or multi_tries >= 10:
-                system("cls")
-                rprint("[bold]"+self.row1+"\n"+self.row2+"\n"+self.row3)
+                self.print_format(2)
                 if (self.row1 == "X | X | X" or self.row2 == "X | X | X" or self.row3 == "X | X | X") or (self.row1[0:3] == "X |" and self.row2[0:3]=="X |" and self.row3[0:3]=="X |") or (self.row1[4:7] == "X |" and self.row2[4:7]=="X |" and self.row3[4:7]=="X |") or (self.row1[8] == "X" and self.row2[8]=="X" and self.row3[8]=="X") or (self.row1[0:3] == "X |" and self.row2[4:7]=="X |" and self.row3[8]=="X") or (self.row1[8]=="X" and self.row2[4:7]=="X |" and self.row3[0:3] == "X |"):
                     X_win += 1
-                    rprint("\n[green]Player [/green][yellow]X[/yellow][green] Wins!")
+                    rprint("\n[green]Player [/green][bright_blue]X[/bright_blue][green] Wins!")
                     t1 = threading.Thread(target=sounds, args=(5,))
                     t1.start()
                 elif (self.row1 == "O | O | O" or self.row2 == "O | O | O" or self.row3 == "O | O | O") or (self.row1[0:3] == "O |" and self.row2[0:3]=="O |" and self.row3[0:3]=="O |") or (self.row1[4:7] == "O |" and self.row2[4:7]=="O |" and self.row3[4:7]=="O |") or (self.row1[8] == "O" and self.row2[8]=="O" and self.row3[8]=="O") or (self.row1[0:3] == "O |" and self.row2[4:7]=="O |" and self.row3[8]=="O") or (self.row1[8]=="O" and self.row2[4:7]=="O |" and self.row3[0:3] == "O |"):
                     O_win += 1
-                    rprint("\n[green]Player [/green][yellow]O[/yellow][green] Wins!")
+                    rprint("\n[green]Player [/green][dark_orange]O[/dark_orange][green] Wins!")
                     t1 = threading.Thread(target=sounds, args=(5,))
                     t1.start()
                 elif multi_tries >= 10:
                     multi_draws += 1
                     rprint("\n[yellow]It's a draw!")
                 self.game_reset_and_file_update_mp()
-                rprint("\nWould you like to continue? [yellow](Y/N): ",end = "")
+                rprint("Would you like to continue? [yellow](Y/N): ",end = "")
                 count=input()
                 if count.upper()=="Y":
                     t1 = threading.Thread(target=sounds, args=(1,))
@@ -285,25 +316,29 @@ class TicTacToe:
             else:
                 if switch == 0:
                     sign = "X"
+                    format_sign = "[bright_blue]X[/bright_blue]"
                     switch = 1
                 elif switch == 1:
                     sign = "O"
+                    format_sign = "[dark_orange]O[/dark_orange]"
                     switch = 0
                 while True:
-                    system("cls")
-                    rprint("[bold]"+self.row1+"\n"+self.row2+"\n"+self.row3)
+                    self.print_format(2)
                     try:
-                        rprint("\nPlayer [yellow]"+sign+"[/yellow], Enter the input here: ",end = "")
+                        rprint("\nPlayer "+format_sign+", Enter the input here: ",end = "")
                         self.num=input()
                         temp = self.num
                         self.num = int(self.num)
                         if self.num in val_lis:
                             if self.num >= 1 and self.num <= 3:
                                 self.row1 = self.row1.replace(str(self.num),sign)
+                                self.row1_temp = self.row1
                             elif self.num >= 4 and self.num <= 6:
                                 self.row2 = self.row2.replace(str(self.num),sign)
+                                self.row2_temp = self.row2
                             elif self.num >= 7 and self.num <= 9:
                                 self.row3 = self.row3.replace(str(self.num),sign)
+                                self.row3_temp = self.row3
                             val_lis.remove(self.num)
                             t1 = threading.Thread(target=sounds, args=(4,))
                             t1.start()
@@ -359,9 +394,11 @@ class TicTacToe:
         self.row1="1 | 2 | 3"
         self.row2="4 | 5 | 6"
         self.row3="7 | 8 | 9"
+        self.row1_temp = self.row1
+        self.row2_temp = self.row2
+        self.row3_temp = self.row3
         while True:
-            system("cls")
-            rprint("[bold]"+self.row1+"\n"+self.row2+"\n"+self.row3) 
+            self.print_format(1)
             if ((self.row1 == "O | O | O" or self.row2 == "O | O | O" or self.row3 == "O | O | O") or (self.row1[0:3] == "O |" and self.row2[0:3]=="O |" and self.row3[0:3]=="O |") or (self.row1[4:7] == "O |" and self.row2[4:7]=="O |" and self.row3[4:7]=="O |") or (self.row1[8] == "O" and self.row2[8]=="O" and self.row3[8]=="O") or (self.row1[0:3] == "O |" and self.row2[4:7]=="O |" and self.row3[8]=="O") or (self.row1[8]=="O" and self.row2[4:7]=="O |" and self.row3[0:3] == "O |")) or cond == 1 or cond == 2:
                 if (self.row1 == "O | O | O" or self.row2 == "O | O | O" or self.row3 == "O | O | O") or (self.row1[0:3] == "O |" and self.row2[0:3]=="O |" and self.row3[0:3]=="O |") or (self.row1[4:7] == "O |" and self.row2[4:7]=="O |" and self.row3[4:7]=="O |") or (self.row1[8] == "O" and self.row2[8]=="O" and self.row3[8]=="O") or (self.row1[0:3] == "O |" and self.row2[4:7]=="O |" and self.row3[8]=="O") or (self.row1[8]=="O" and self.row2[4:7]=="O |" and self.row3[0:3] == "O |"):
                     t1 = threading.Thread(target=sounds, args=(6,))
@@ -379,7 +416,7 @@ class TicTacToe:
                     draws += 1
                     rprint("\n[yellow]It's a Draw! No one won...")
                 self.game_reset_and_file_update_sp()
-                rprint("Would you like to continue? [yellow](Y/N):",end = "")
+                rprint("Would you like to continue? [yellow](Y/N): ",end = "")
                 count=input()
                 if count.upper()=="Y":
                     t1 = threading.Thread(target=sounds, args=(1,))
@@ -404,12 +441,15 @@ class TicTacToe:
                         if self.num >= 1 and self.num <= 3:
                             pos = [self.row1.index(str(self.num)),1]
                             self.row1 = self.row1.replace(str(self.num),"X")
+                            self.row1_temp = self.row1
                         elif self.num >= 4 and self.num <= 6:
                             pos = [self.row2.index(str(self.num)),2]
                             self.row2 = self.row2.replace(str(self.num),"X")
+                            self.row2_temp = self.row2
                         elif self.num >= 7 and self.num <= 9:
                             pos = [self.row3.index(str(self.num)),3]
                             self.row3 = self.row3.replace(str(self.num),"X")
+                            self.row3_temp = self.row3
                         t1 = threading.Thread(target=sounds, args=(4,))
                         t1.start()
                         if (self.row1 == "X | X | X" or self.row2 == "X | X | X" or self.row3 == "X | X | X") or (self.row1[0:3] == "X |" and self.row2[0:3]=="X |" and self.row3[0:3]=="X |") or (self.row1[4:7] == "X |" and self.row2[4:7]=="X |" and self.row3[4:7]=="X |") or (self.row1[8] == "X" and self.row2[8]=="X" and self.row3[8]=="X") or (self.row1[0:3] == "X |" and self.row2[4:7]=="X |" and self.row3[8]=="X") or (self.row1[8]=="X" and self.row2[4:7]=="X |" and self.row3[0:3] == "X |"):
@@ -423,6 +463,9 @@ class TicTacToe:
                             self.AIBot()
                             t1 = threading.Thread(target=sounds, args=(4,))
                             t1.start()
+                            self.row1_temp = self.row1
+                            self.row2_temp = self.row2
+                            self.row3_temp = self.row3
                             continue        
                     else:
                         t1 = threading.Thread(target=sounds, args=(3,))
