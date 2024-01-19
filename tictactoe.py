@@ -254,9 +254,9 @@ class TicTacToe:
                     self.row1_temp = self.row1_temp.replace("O","[dark_orange]O[/dark_orange]")
                     self.row2_temp = self.row2_temp.replace("O","[dark_orange]O[/dark_orange]")
                     self.row3_temp = self.row3_temp.replace("O","[dark_orange]O[/dark_orange]")
-                rprint("[bold]"+self.row1_temp+"\n"+self.row2_temp+"\n"+self.row3_temp)
+                rprint("[bold]\t"+self.row1_temp+"\n\t"+self.row2_temp+"\n\t"+self.row3_temp)
             else:
-                rprint("[bold]"+self.row1+"\n"+self.row2+"\n"+self.row3)
+                rprint("[bold]\t"+self.row1+"\n\t"+self.row2+"\n\t"+self.row3)
         elif mode == 2:
             if multi_tries > 1:
                 if "X" in self.row1 or "X" in self.row2 or "X" in self.row3:
@@ -267,9 +267,9 @@ class TicTacToe:
                     self.row1_temp = self.row1_temp.replace("O","[dark_orange]O[/dark_orange]")
                     self.row2_temp = self.row2_temp.replace("O","[dark_orange]O[/dark_orange]")
                     self.row3_temp = self.row3_temp.replace("O","[dark_orange]O[/dark_orange]")
-                rprint("[bold]"+self.row1_temp+"\n"+self.row2_temp+"\n"+self.row3_temp)
+                rprint("[bold]\t"+self.row1_temp+"\n\t"+self.row2_temp+"\n\t"+self.row3_temp)
             else:
-                rprint("[bold]"+self.row1+"\n"+self.row2+"\n"+self.row3)
+                rprint("[bold]\t"+self.row1+"\n\t"+self.row2+"\n\t"+self.row3)
     def TicTacToePvP(self):
         switch = 0
         val_lis = [1,2,3,4,5,6,7,8,9]
