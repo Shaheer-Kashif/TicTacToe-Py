@@ -9,5 +9,7 @@ My first project on Python. Includes Player VS AI and Player VS Player Mode.
     pip install -r requirements.txt
 4. Done!
 
+# Just Want to Play the Game?
+Download tictactoe_exe.rar in the game folder, extract it and launch tictactoe.exe!
 
 
