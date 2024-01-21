@@ -1,7 +1,7 @@
 # TicTacToe-Py
 My first project on Python. Includes Player VS AI and Player VS Player Mode.
 
-# Installation For Souree Code
+# Installation For Source Code
 1. Clone This Repository to your machine
 2. Create a Python virtual environment (optional but recommended) using Command Prompt in the Repository   Folder:
     python -m venv venv
