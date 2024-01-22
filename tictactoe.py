@@ -245,31 +245,25 @@ class TicTacToe:
         global multi_tries,tries
         system("cls")
         if mode == 1:
-            if tries > 1:
-                if "X" in self.row1 or "X" in self.row2 or "X" in self.row3:
-                    self.row1_temp = self.row1_temp.replace("X","[bright_blue]X[/bright_blue]")
-                    self.row2_temp = self.row2_temp.replace("X","[bright_blue]X[/bright_blue]")
-                    self.row3_temp = self.row3_temp.replace("X","[bright_blue]X[/bright_blue]")
-                if "O" in self.row1 or "O" in self.row2 or "O" in self.row3:
-                    self.row1_temp = self.row1_temp.replace("O","[dark_orange]O[/dark_orange]")
-                    self.row2_temp = self.row2_temp.replace("O","[dark_orange]O[/dark_orange]")
-                    self.row3_temp = self.row3_temp.replace("O","[dark_orange]O[/dark_orange]")
-                rprint("[bold]\t"+self.row1_temp+"\n\t"+self.row2_temp+"\n\t"+self.row3_temp)
-            else:
-                rprint("[bold]\t"+self.row1+"\n\t"+self.row2+"\n\t"+self.row3)
+            if "X" in self.row1 or "X" in self.row2 or "X" in self.row3:
+                self.row1_temp = self.row1_temp.replace("X","[bright_blue]X[/bright_blue]")
+                self.row2_temp = self.row2_temp.replace("X","[bright_blue]X[/bright_blue]")
+                self.row3_temp = self.row3_temp.replace("X","[bright_blue]X[/bright_blue]")
+            if "O" in self.row1 or "O" in self.row2 or "O" in self.row3:
+                self.row1_temp = self.row1_temp.replace("O","[dark_orange]O[/dark_orange]")
+                self.row2_temp = self.row2_temp.replace("O","[dark_orange]O[/dark_orange]")
+                self.row3_temp = self.row3_temp.replace("O","[dark_orange]O[/dark_orange]")
+            rprint("[bold]\t"+self.row1_temp+"\n\t"+self.row2_temp+"\n\t"+self.row3_temp)
         elif mode == 2:
-            if multi_tries > 1:
-                if "X" in self.row1 or "X" in self.row2 or "X" in self.row3:
-                    self.row1_temp = self.row1_temp.replace("X","[bright_blue]X[/bright_blue]")
-                    self.row2_temp = self.row2_temp.replace("X","[bright_blue]X[/bright_blue]")
-                    self.row3_temp = self.row3_temp.replace("X","[bright_blue]X[/bright_blue]")
-                if "O" in self.row1 or "O" in self.row2 or "O" in self.row3:
-                    self.row1_temp = self.row1_temp.replace("O","[dark_orange]O[/dark_orange]")
-                    self.row2_temp = self.row2_temp.replace("O","[dark_orange]O[/dark_orange]")
-                    self.row3_temp = self.row3_temp.replace("O","[dark_orange]O[/dark_orange]")
-                rprint("[bold]\t"+self.row1_temp+"\n\t"+self.row2_temp+"\n\t"+self.row3_temp)
-            else:
-                rprint("[bold]\t"+self.row1+"\n\t"+self.row2+"\n\t"+self.row3)
+            if "X" in self.row1 or "X" in self.row2 or "X" in self.row3:
+                self.row1_temp = self.row1_temp.replace("X","[bright_blue]X[/bright_blue]")
+                self.row2_temp = self.row2_temp.replace("X","[bright_blue]X[/bright_blue]")
+                self.row3_temp = self.row3_temp.replace("X","[bright_blue]X[/bright_blue]")
+            if "O" in self.row1 or "O" in self.row2 or "O" in self.row3:
+                self.row1_temp = self.row1_temp.replace("O","[dark_orange]O[/dark_orange]")
+                self.row2_temp = self.row2_temp.replace("O","[dark_orange]O[/dark_orange]")
+                self.row3_temp = self.row3_temp.replace("O","[dark_orange]O[/dark_orange]")
+            rprint("[bold]\t"+self.row1_temp+"\n\t"+self.row2_temp+"\n\t"+self.row3_temp)
     def TicTacToePvP(self):
         switch = 0
         val_lis = [1,2,3,4,5,6,7,8,9]
@@ -450,6 +444,7 @@ class TicTacToe:
                             pos = [self.row3.index(str(self.num)),3]
                             self.row3 = self.row3.replace(str(self.num),"X")
                             self.row3_temp = self.row3
+                        self.print_format(1)
                         t1 = threading.Thread(target=sounds, args=(4,))
                         t1.start()
                         if (self.row1 == "X | X | X" or self.row2 == "X | X | X" or self.row3 == "X | X | X") or (self.row1[0:3] == "X |" and self.row2[0:3]=="X |" and self.row3[0:3]=="X |") or (self.row1[4:7] == "X |" and self.row2[4:7]=="X |" and self.row3[4:7]=="X |") or (self.row1[8] == "X" and self.row2[8]=="X" and self.row3[8]=="X") or (self.row1[0:3] == "X |" and self.row2[4:7]=="X |" and self.row3[8]=="X") or (self.row1[8]=="X" and self.row2[4:7]=="X |" and self.row3[0:3] == "X |"):
@@ -503,7 +498,9 @@ class TicTacToe:
                         continue
     def AIBot(self):
         global AItry , tries , firsttry , label , AI_pos , ch1 , ch2 , ch3 , ch4 , ch5 , ch6 , ch7 , ch8 , slb , ulb , ch9 , ch10
-        rprint("[yellow]AI[/yellow] is thinking.\r")
+        rprint("\n[yellow]AI[/yellow] is thinking.",end = "\r")
+        time.sleep(1)
+        rprint("[yellow]AI[/yellow] is thinking..",end = "")
         time.sleep(1)
         if AItry == 1:
             if self.row2[4]!="X":
