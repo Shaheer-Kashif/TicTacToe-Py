@@ -13,6 +13,6 @@ TicTacToe developed using Python Language with fully functioning Main Menu, Stat
 Download tictactoe_exe.rar in the game folder, extract it and launch tictactoe.exe!
 
 ## Some Screenshots of the game:-
-![images/Main Menu](1.png)
-![images/Start Game Menu](2.png)
-![images/Stats Menu](3.png)
+![Main Menu](images/1.png)
+![Start Game Menu](images/2.png)
+![Stats Menu](images/3.png)
